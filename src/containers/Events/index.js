@@ -10,15 +10,19 @@ import "./style.css";
 const PER_PAGE = 9;
 
 const EventList = () => {
+  // Utilisation du hook useData pour obtenir les données d'événements et de son état d'erreur
   const { data, error } = useData();
+  // Initialisation des états locaux : type de catégorie sélectionné et numéro de page actuel
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
+    // si aucun type de categories elle retourne tous les evenement
     (!type
       ? data?.events
-      : data?.events) || []
+      : data?.events.filter((event) => event.type === type)) || []
   ).filter((event, index) => {
     if (
+      // index de l'événement est dans la plage de pagination && 'index de l'événement ne dépasse pas la limite de la page actuelle
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
     ) {
