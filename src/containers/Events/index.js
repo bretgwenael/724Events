@@ -18,7 +18,9 @@ const EventList = () => {
   const filteredEvents = (
     // si aucun type de categories elle retourne tous les evenement
     (!type
+      // Affiche tous les événements
       ? data?.events
+      // filtrage des événements en fonction de leur type
       : data?.events.filter((event) => event.type === type)) || []
   ).filter((event, index) => {
     if (

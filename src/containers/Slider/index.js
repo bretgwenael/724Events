@@ -26,6 +26,7 @@ const Slider = () => {
   });
   return (
     <div className="SlideCardList">
+      {/* Suppresion des <></> qui encapsulait 2 éléments différents */}
       {byDateDesc?.map((event, idx) => (
         <div key={event.title}>
           <div
