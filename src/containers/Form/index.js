@@ -17,7 +17,7 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         setSending(false);
         // call onSuccess pour recuperer  le message envoye
-        onSuccess()
+       onSuccess()
       } catch (err) {
         setSending(false);
         onError(err);
